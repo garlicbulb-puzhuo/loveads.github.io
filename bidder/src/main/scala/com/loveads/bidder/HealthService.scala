@@ -1,4 +1,4 @@
-package com.playground.chen.bidder
+package com.loveads.bidder
 
 import akka.actor.Actor
 import spray.routing._

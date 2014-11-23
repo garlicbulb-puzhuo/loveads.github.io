@@ -1,10 +1,11 @@
-package com.playground.chen.bidder
+package com.loveads.bidder
 
 import scala.concurrent.Await
 import scala.concurrent.ExecutionContext.Implicits.global
 import scala.concurrent.duration._
 import scala.util.Success
 
+import com.loveads.bidder.Boot;
 import com.typesafe.scalalogging.slf4j.Logging
 
 import akka.actor.ActorSystem
