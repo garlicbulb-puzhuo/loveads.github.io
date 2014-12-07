@@ -1,13 +1,15 @@
 import AssemblyKeys._
 import com.typesafe.sbt.SbtStartScript
 
-organization  := "com.playground.chen"
+organization  := "com.loveads.bidder"
 
-version       := "0.1"
+version       := "0.1.0"
 
 scalaVersion  := "2.10.4"
 
-scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8")
+scalacOptions := Seq("-unchecked", "-deprecation", "-encoding", "utf8", "-target:jvm-1.7")
+
+javacOptions ++= Seq("-source", "1.7", "-target", "1.7")
 
 libraryDependencies ++= {
   val akkaV = "2.3.6"
@@ -18,12 +20,16 @@ libraryDependencies ++= {
     "io.spray"            %%  "spray-testkit" % sprayV  % "test",
     "com.typesafe.akka"   %%  "akka-actor"    % akkaV,
     "com.typesafe.akka"   %%  "akka-testkit"  % akkaV   % "test",
-    "org.specs2"          %%  "specs2-core"   % "2.3.7" % "test"
+    "org.specs2"          %%  "specs2-core"   % "2.3.7" % "test",
+    "org.slf4j"           %   "slf4j-api"     % "1.7.5"
   )
 }
-
-libraryDependencies += "com.typesafe" %% "scalalogging-slf4j" % "1.1.0"
 
 Revolver.settings
 
 assemblySettings
+
+org.scalastyle.sbt.ScalastylePlugin.Settings
+
+org.scalastyle.sbt.PluginKeys.config := file("project/scalastyle-config.xml")
+

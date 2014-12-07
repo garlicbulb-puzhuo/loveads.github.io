@@ -4,6 +4,7 @@ import akka.actor.Actor
 import spray.routing._
 import spray.http._
 import MediaTypes._
+import org.slf4j.LoggerFactory
 
 // we don't implement our route structure directly in the service actor because
 // we want to be able to test it independently, without having to spin up an actor
@@ -21,6 +22,7 @@ class HealthServiceActor extends Actor with HealthService {
 
 // this trait defines our service behavior independently from the service actor
 trait HealthService extends HttpService {
+  private val logger = LoggerFactory.getLogger(getClass)
 
   val myRoute =
     path("") {
